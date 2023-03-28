@@ -2,7 +2,7 @@ import React from "react";
 
 // components
 
-import SalesForm from "components/Cards/SalesCard.js";
+import RetentionCard from "components/Cards/RetentionCard.js";
 
 // layout for page
 
@@ -13,7 +13,7 @@ export default function Settings() {
     <>
       <div className="flex flex-wrap">
         <div className="w-full px-4">
-          <SalesForm />
+          <RetentionCard />
         </div>
       </div>
     </>

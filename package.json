@@ -2,6 +2,7 @@
   "name": "Fintech-personal-bank",
   "version": "1.1.0",
   "description": "Personalised Banking System",
+  "repository": "https://github.com/dhairyaameria/Fintech-personal-bank.git",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",

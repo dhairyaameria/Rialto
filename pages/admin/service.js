@@ -2,7 +2,7 @@ import React from "react";
 
 // components
 
-import SalesForm from "components/Cards/SalesCard.js";
+import ServiceCard from "components/Cards/ServiceCard.js";
 
 // layout for page
 
@@ -13,7 +13,7 @@ export default function Settings() {
     <>
       <div className="flex flex-wrap">
         <div className="w-full px-4">
-          <SalesForm />
+          <ServiceCard />
         </div>
       </div>
     </>
