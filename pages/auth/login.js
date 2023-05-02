@@ -1,12 +1,51 @@
-import React from "react";
+import React, {useState} from "react";
 import Link from "next/link";
-
-// layout for page
-
+import { useRouter } from "next/router";
 import Auth from "layouts/Auth.js";
+import { useAuth } from "../../backend/context/AuthContext";
 
 export default function Login() {
-  return (
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
+  const [isLoggingIn, setIsLoggingIn] = useState(true)
+
+  const { login, currentUser } = useAuth()
+  const router = useRouter();
+  console.log(currentUser)
+
+  async function submitHandler(){
+     console.log(email);
+     console.log(password);
+    
+    if(!email || !password){
+      setError('Please enter email and password')
+      return
+    }
+    if(!email){
+      setError('Please enter email')
+      return
+    }
+    if(!password){
+      setError('Please enter password')
+      return
+    }
+    // if(isLoggingIn){
+    //   try{
+    //     await login(email,password)
+    //   }catch(err){
+    //     setError('Incorrect email or password')
+    //   } 
+    // }
+    login(email,password)
+    .then(currentUser =>{
+      router.push('/admin/dashboard')
+    })
+    .catch(error=>{
+      setError(error.message)
+    });
+  }
+   return (
     <>
       <div className="container mx-auto px-4 h-full">
         <div className="flex content-center items-center justify-center h-full">
@@ -20,14 +59,14 @@ export default function Login() {
                 </div>
                 <div className="btn-wrapper text-center">
                   <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
                     <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
                     Github
                   </button>
                   <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
                     <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
@@ -42,6 +81,7 @@ export default function Login() {
                 </div>
                 <form>
                   <div className="relative w-full mb-3">
+                
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
@@ -52,6 +92,9 @@ export default function Login() {
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -66,8 +109,12 @@ export default function Login() {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                   </div>
+
                   <div>
                     <label className="inline-flex items-center cursor-pointer">
                       <input
@@ -80,18 +127,17 @@ export default function Login() {
                       </span>
                     </label>
                   </div>
-
-                  <Link href="/admin/dashboard">
+                  {error && <div className=' border-red-400 border text-center border-solid text-red-400 py-2'>{error}</div>}
                     <div className="text-center mt-6">
                       <button
-                        href="#pablo"
+                        
                         className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                         type="button"
+                        onClick={submitHandler}
                       >
                         Sign In
                       </button>
                     </div>
-                  </Link>
                 </form>
               </div>
             </div>
@@ -106,11 +152,9 @@ export default function Login() {
                 </a>
               </div>
               <div className="w-1/2 text-right">
-                <Link href="/auth/register">
-                  <a href="#pablo" className="text-blue-200">
-                    <small>Create new account</small>
+                  <a href="/auth/register" className="text-blue-200">
+                    <small onClick={() => setIsLoggingIn(!isLoggingIn)}>Create new account</small>
                   </a>
-                </Link>
               </div>
             </div>
           </div>
@@ -119,5 +163,4 @@ export default function Login() {
     </>
   );
 }
-
 Login.layout = Auth;

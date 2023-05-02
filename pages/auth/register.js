@@ -1,10 +1,47 @@
-import React from "react";
-
-// layout for page
-
+import React, {useState} from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import Auth from "layouts/Auth.js";
+import { useAuth } from "../../backend/context/AuthContext";
 
 export default function Register() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
+  const [isLoggingIn] = useState(null)
+  const [alert, setAlert] =useState(true)
+
+  const {signup, currentUser } = useAuth()
+  console.log(currentUser)
+
+const router = useRouter()
+
+  async function submitHandler(){
+    
+    if(!email || !password){
+      setError('Please enter email and password')
+      return
+    }
+    if(!email){
+      setError('Please enter email')
+      return
+    }
+    if(!password){
+      setError('Please enter password')
+      return
+    }
+    if(!isLoggingIn){
+         signup(email, password)
+          setAlert("Successfully created an account")
+          router.push(('/auth/login'))
+    }
+    // signup(email,password).then(currentUser =>{
+    //   router.push('/auth/login')
+    // })
+    // .catch(error=>{
+    //   setError(error.message)
+    // });
+  }
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -19,14 +56,14 @@ export default function Register() {
                 </div>
                 <div className="btn-wrapper text-center">
                   <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
                     <img alt="..." className="w-5 mr-1" src="/img/github.svg" />
                     Github
                   </button>
                   <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                    className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                   >
                     <img alt="..." className="w-5 mr-1" src="/img/google.svg" />
@@ -40,7 +77,7 @@ export default function Register() {
                   <small>Or sign up with credentials</small>
                 </div>
                 <form>
-                  <div className="relative w-full mb-3">
+                  {/* <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
@@ -52,7 +89,7 @@ export default function Register() {
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Name"
                     />
-                  </div>
+                  </div> */}
 
                   <div className="relative w-full mb-3">
                     <label
@@ -65,6 +102,9 @@ export default function Register() {
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -79,6 +119,9 @@ export default function Register() {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -101,14 +144,17 @@ export default function Register() {
                       </span>
                     </label>
                   </div>
-
+                  {error && <div className=' border-red-400 border text-center border-solid text-red-400 py-2'>{error}</div>}
+                  
                   <div className="text-center mt-6">
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="button"
+                      onClick={submitHandler}
                     >
-                      Create Account
+                     Create Account
                     </button>
+                    {alert && <div className=' border-red-400 border text-center border-solid text-red-400 py-2'>{alert}</div>}
                   </div>
                 </form>
               </div>

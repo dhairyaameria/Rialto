@@ -1,8 +1,5 @@
 import React from "react";
 import Link from "next/link";
-// components
-
-import IndexDropdown from "components/Dropdowns/IndexDropdown.js";
 
 export default function Navbar(props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
@@ -34,44 +31,8 @@ export default function Navbar(props) {
             }
             id="example-navbar-warning"
           >
-
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-             
-              {/* <li className="flex items-center">
-                <a
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  // href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-nextjs%2F"
-                  target="_blank"
-                >
-                  <span className="inline-block ml-2">Share</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  // href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-nextjs%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20NextJS%20UI%20Kit%20and%20Admin.%20Let%20Notus%20NextJS%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level."
-                  target="_blank"
-                >
-
-                  <span className="inline-block ml-2">Tweet</span>
-                </a>
-              </li>
-
-              <li className="flex items-center">
-                <a
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  // href="https://github.com/creativetimofficial/notus-nextjs?ref=nnjs-index-navbar"
-                  target="_blank"
-                >
-                  <span className="inline-block ml-2">Star</span>
-                </a>
-              </li>
-              <li className="flex items-center">
-                <IndexDropdown />
-              </li> */}
               <Link href="/auth/login">
-                 
               <button
                   href="#pablo"
                   className="bg-blueGray-700 text-white active:bg-blueGray-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
@@ -80,16 +41,6 @@ export default function Navbar(props) {
                   Login
               </button>
               </Link>
-              {/* <Link href="/auth/register">
-               
-              <button
-                  href="#pablo"
-                  className="bg-blueGray-700 text-white active:bg-blueGray-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  Register
-              </button>
-              </Link> */}
             </ul>
           </div>
         </div>
