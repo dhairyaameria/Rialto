@@ -239,7 +239,7 @@ export default function Settings() {
                         onChange={setFormData}
                         name="age"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="BANK-XXXX"
+                        placeholder="Input age"
                       />
                     </div>
                   </div>
@@ -251,47 +251,10 @@ export default function Settings() {
                       >
                         Gender
                       </label>
-                      <input
-                        type="text"
-                        onChange={setFormData}
-                        name="gender"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="+91 "
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="grid-password"
-                      >
-                        Occupation
-                      </label>
-                      <input
-                        type="text"
-                        onChange={setFormData}
-                        name="occupation"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="lucky.jesse"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="grid-password"
-                      >
-                        Children
-                      </label>
-                      <input
-                        type="text"
-                        onChange={setFormData}
-                        name="children"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="jesse@example.com"
-                      />
+                       <select type="dropdown"  onChange={setFormData} name="phone" placeholder="phone" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Female">Female</option>
+                          <option value="Male">Male</option>
+                      </select>
                     </div>
                   </div>
 
@@ -301,17 +264,168 @@ export default function Settings() {
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor="grid-password"
                       >
-                        Income type
+                        children
                       </label>
                       <input
                         type="text"
                         onChange={setFormData}
-                        name="incomeType"
+                        name="children"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Lucky"
+                        placeholder="Number of Children"
                       />
                     </div>
                   </div>
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Property
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="property" placeholder="property" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Car
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="car" placeholder="car" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Y">Yes</option>
+                          <option value="N">No</option>
+                          
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Income Type
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="income_type" placeholder="income_type" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Working">Working</option>
+                          <option value="Pensioner">Pensioner</option>
+                          <option value="Commercial associate">Commercial associate</option>
+                          <option value="State servant">State Servant</option>
+                          <option value="Student">Student</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Education
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="education" placeholder="education" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Academic degree">Academic degree</option>
+                          <option value="Higher education">Higher education</option>
+                          <option value="Incomplete higher">Incomplete higher</option>
+                          <option value="Lower secondary">Lower secondary</option>
+                          <option value="Secondary / secondary special">Secondary / secondary special</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Marriage
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="family_status" placeholder="family_status" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Civil marriage">Civil marriage</option>
+                          <option value="Married">Married</option>
+                          <option value="Separated">Separated</option>
+                          <option value="Single / not married">Single / not married</option>
+                          <option value="Widow">Widow</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Housing Type
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="housing_type" placeholder="housing_type" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Co-op apartment">Co-op apartment</option>
+                          <option value="House / apartment">House / apartment</option>
+                          <option value="Municipal apartment">Municipal apartment</option>
+                          <option value="Office apartment">Office apartment</option>
+                          <option value="Rented apartment">Rented apartment</option>
+                          <option value="With parents">With parents</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        occupation Type
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="occupation_type" placeholder="occupation_type" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="Security staff">Security staff</option>
+                          <option value="Cooking staff">Cooking staff</option>
+                          <option value="HR staff">HR staff</option>
+                          <option value="Laborers">Laborers</option>
+                          <option value="Core staff">Core staff</option>
+                          <option value="Low-skill Laborers">Low-skill Laborers</option>
+                          <option value="Realty agents">Realty agents</option>
+                          <option value="IT staff">IT staff</option>
+                          <option value="Managers">Managers</option>
+                          <option value="High skill tech staff">High skill tech staff</option>
+                          <option value="Private service staff">Private service staff</option>
+                          <option value="Drivers">Drivers</option>
+                          <option value="Sales staff">Sales staff</option>
+                          <option value="Accountants">Accountants</option>
+                          <option value="Cleaning staff">Cleaning staff</option>
+                          <option value="Secretaries">Secretaries</option>
+                          <option value="Waiters/barmen staff">Waiters/barmen staff</option>
+                          <option value="Medicine staff">Medicine staff</option>
+                          <option value="Accountants">Accountants</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="w-full lg:w-6/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Phone
+                      </label>
+                       <select type="dropdown"  onChange={setFormData} name="phone" placeholder="phone" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+
+                  
                   <div className="w-full lg:w-6/12 px-4">
                     <div className="relative w-full mb-3">
                       <label
@@ -330,40 +444,7 @@ export default function Settings() {
                     </div>
                   </div>
 
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="grid-password"
-                      >
-                        Marital Status
-                      </label>
-                      <input
-                        type="text"
-                        onChange={setFormData}
-                        name="maritalStatus"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Lucky"
-                      />
-                    </div>
-                  </div>
-                  <div className="w-full lg:w-6/12 px-4">
-                    <div className="relative w-full mb-3">
-                      <label
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="grid-password"
-                      >
-                        Car
-                      </label>
-                      <input
-                        type="text"
-                        onChange={setFormData}
-                        name="car"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Jesse"
-                      />
-                    </div>
-                  </div>
+                  
                 </div>
                 <button
                     className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
