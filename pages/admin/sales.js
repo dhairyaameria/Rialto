@@ -32,7 +32,7 @@ export default function Settings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="lucky.jesse"
+                    placeholder="lucky.jesse"
                   />
                 </div>
               </div>
@@ -47,7 +47,7 @@ export default function Settings() {
                   <input
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="jesse@example.com"
+                    placeholder="jesse@example.com"
                   />
                 </div>
               </div>
@@ -62,7 +62,7 @@ export default function Settings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="BANK-XXXX"
+                    placeholder="BANK-XXXX"
                   />
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function Settings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue="+91 "
+                    placeholder="+91 "
                   />
                 </div>
               </div>

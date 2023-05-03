@@ -1,17 +1,5 @@
 import User from '../models/user'
 
-// get: http://localhost:3000/api
-export async function getUsers(req,res){
-    try{
-        const users = await User.find({})
-
-        if(!users) return res.status(404).json({error:"Data not found"})        
-        return res.status(200).json(users)
-    }catch(error){
-        return res.status(404).json({error:"Error while fetching data"})
-    }
-}
-
 // post: http://localhost:3000/api
 export async function postUsers(req,res){
     try{
@@ -25,6 +13,19 @@ export async function postUsers(req,res){
     }
 }
 
+// get: http://localhost:3000/api
+export async function findUser(req,res){
+    try{
+        const accountId = req.query
+        await User.findOne(accountId).then((data)=>{
+            return res.status(200).json({data})
+        })
+        if(!accountId) return res.status(404).json({error:"User not found"})        
+        
+    }catch(error){
+        return res.status(404).json({error:"Error while fetching data"})
+    }
+}
 
 
 
